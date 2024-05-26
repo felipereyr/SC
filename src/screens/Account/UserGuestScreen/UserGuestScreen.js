@@ -15,7 +15,7 @@ export function UserGuestScreen() {
   return (
     <ScrollView centerContent={true} style={styles.content}>
       <Image
-        source={require("../../../../assets/img/user-guest.png")}
+        source={require("../../../../assets/img/logoRBG.png")}
         style={styles.image}
       />
       <Text style={styles.title}>Consultar tu perfil de 5 Tenedores</Text>

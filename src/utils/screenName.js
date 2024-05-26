@@ -16,9 +16,9 @@ const rankingStack = {
   ranking: "Ranking",
 };
 
-const searchStack = {
-  tab: "SearchTab",
-  search: "Search",
+const addPublicationStack = {
+  tab: "AddPublicationTab",
+  addPublication: "AddPublication",
 };
 
 const accountStack = {
@@ -32,6 +32,6 @@ export const screen = {
   restaurant: restaurantStack,
   favorites: favoritesStack,
   ranking: rankingStack,
-  search: searchStack,
+  AddPublication: addPublicationStack,
   account: accountStack,
 };

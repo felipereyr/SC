@@ -12,6 +12,6 @@ export const styles = StyleSheet.create({
     borderBottomColor: "#e3e3e3",
   },
   btnTextStyle: {
-    color: "#00a680",
+    color: "#D6445B",
   },
 });
