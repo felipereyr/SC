@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    color: "#00a680",
+    color: "#D6445B",
     textTransform: "uppercase",
     marginTop: 10,
   },

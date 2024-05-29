@@ -1,26 +1,44 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const ScreenHeight = Dimensions.get("window").height;
+const ScreenWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
-  content: {
-    marginHorizontal: 30,
+  content: {},
+  bk: {
+    height: ScreenHeight,
+    width: ScreenWidth,
+    display: "flex",
+    justifyContent: "center",
   },
   image: {
     resizeMode: "contain",
-    height: 300,
+    height: 200,
     width: "100%",
     marginBottom: 40,
   },
+  text: {
+    display: "flex",
+    alignItems: "center",
+    gap: 20,
+    marginBottom: 100,
+  },
   title: {
+    color: "white",
     fontWeight: "bold",
-    fontSize: 19,
-    marginBottom: 10,
+    fontSize: 30,
     textAlign: "center",
   },
   description: {
+    width: "90%",
+    color: "white",
     textAlign: "center",
-    marginBottom: 20,
+    fontSize: 20,
   },
   btnStyle: {
-    backgroundColor: "#D6445B",
+    width: 300,
+    backgroundColor: "#ffffff",
+    borderRadius: 15,
+    marginBottom: 100,
   },
 });

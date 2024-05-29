@@ -42,6 +42,7 @@ export function LoginForm() {
     <View style={styles.content}>
       <Input
         placeholder="Correo electronico"
+        placeholderTextColor="white"
         containerStyle={styles.input}
         rightIcon={
           <Icon type="material-community" name="at" iconStyle={styles.icon} />
@@ -51,6 +52,7 @@ export function LoginForm() {
       />
       <Input
         placeholder="Contraseña"
+        placeholderTextColor="white"
         containerStyle={styles.input}
         secureTextEntry={showPassword ? false : true}
         rightIcon={
@@ -65,7 +67,8 @@ export function LoginForm() {
         errorMessage={formik.errors.password}
       />
       <Button
-        title="Iniciar sesión"
+        title="Log in"
+        titleStyle={{ color: "#000000" }}
         containerStyle={styles.btnContainer}
         buttonStyle={styles.btn}
         onPress={formik.handleSubmit}

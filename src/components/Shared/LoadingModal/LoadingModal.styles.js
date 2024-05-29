@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     height: 100,
     width: 200,
     backgroundColor: "#fff",
-    borderColor: "#00a680",
+    borderColor: "#D6445B",
     borderWidth: 2,
     borderRadius: 10,
   },
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    color: "#00a680",
+    color: "#D6445B",
     textTransform: "uppercase",
     marginTop: 10,
   },

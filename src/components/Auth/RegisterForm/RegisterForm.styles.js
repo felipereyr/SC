@@ -12,13 +12,14 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   icon: {
-    color: "#c1c1c1",
+    color: "#ffffff",
   },
   btnContainer: {
     marginTop: 20,
-    width: "95%",
   },
   btn: {
-    backgroundColor: "#D6445B",
+    width: 300,
+    backgroundColor: "#ffffff",
+    borderRadius: 15,
   },
 });

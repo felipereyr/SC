@@ -3,21 +3,19 @@ import * as Yup from "yup";
 export function initialValues() {
   return {
     name: "",
-    address: "",
+    shop: "",
     description: "",
-    phone: "",
-    email: "",
+    images: [],
   };
 }
 
 export function validationSchema() {
   return Yup.object({
     name: Yup.string().required("Campo obligatorio"),
-    address: Yup.string().required("Campo obligatorio"),
+    shop: Yup.string().required("Campo obligatorio"),
     description: Yup.string().required("Campo obligatorio"),
-    phone: Yup.string().required("Campo obligatorio"),
-    email: Yup.string()
-      .email("No es un email valido")
-      .required("Campo obligatorio"),
+    images: Yup.array()
+      .min(1, "Se requiere imagen")
+      .required("Una imagen porfa"),
   });
 }

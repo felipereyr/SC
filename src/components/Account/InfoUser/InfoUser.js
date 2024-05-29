@@ -18,7 +18,7 @@ export function InfoUser(props) {
       aspect: [4, 3],
     });
 
-    if (!result.cancelled) uploadImage(result.uri);
+    if (!result.cancelled) uploadImage(result.assets[0].uri);
   };
 
   const uploadImage = async (uri) => {

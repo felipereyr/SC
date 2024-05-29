@@ -42,6 +42,7 @@ export function RegisterForm() {
     <View style={styles.content}>
       <Input
         placeholder="Correo electronico"
+        placeholderTextColor="white"
         containerStyle={styles.input}
         rightIcon={
           <Icon type="material-community" name="at" iconStyle={styles.icon} />
@@ -51,6 +52,7 @@ export function RegisterForm() {
       />
       <Input
         placeholder="Contraseña"
+        placeholderTextColor="white"
         containerStyle={styles.input}
         secureTextEntry={showPassword ? false : true}
         rightIcon={
@@ -66,6 +68,7 @@ export function RegisterForm() {
       />
       <Input
         placeholder="Repetir contraseña"
+        placeholderTextColor="white"
         containerStyle={styles.input}
         secureTextEntry={showPassword ? false : true}
         rightIcon={
@@ -81,6 +84,7 @@ export function RegisterForm() {
       />
       <Button
         title="Unirse"
+        titleStyle={{ color: "#000000" }}
         containerStyle={styles.btnContainer}
         buttonStyle={styles.btn}
         onPress={formik.handleSubmit}

@@ -14,16 +14,22 @@ export function LoginScreen() {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "#D6445B" }}>
       <Image
         source={require("../../../../assets/img/logoRBG.png")}
         style={styles.image}
       />
+      <View style={{ display: "flex", alignItems: "center" }}>
+        <Text style={styles.title}>Log in</Text>
+        <Text style={styles.text}>
+          Log in now for and start sharing your clothes
+        </Text>
+      </View>
       <View style={styles.content}>
         <LoginForm />
 
         <Text style={styles.textRegister}>
-          ¿Aún no tienes cuenta{" "}
+          ¿Aún no tienes cuenta?{"  "}
           <Text style={styles.btnRegister} onPress={goToRegister}>
             Regístrarse
           </Text>

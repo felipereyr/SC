@@ -8,27 +8,17 @@ export function InfoForm(props) {
   return (
     <View style={styles.content}>
       <Input
-        placeholder="Nombre restaurante"
+        placeholder="Name of product"
         onChangeText={(text) => formik.setFieldValue("name", text)}
         errorMessage={formik.errors.name}
       />
       <Input
-        placeholder="Dirección"
-        onChangeText={(text) => formik.setFieldValue("address", text)}
-        errorMessage={formik.errors.address}
+        placeholder="Link to shop"
+        onChangeText={(text) => formik.setFieldValue("shop", text)}
+        errorMessage={formik.errors.shop}
       />
       <Input
-        placeholder="Teléfono"
-        onChangeText={(text) => formik.setFieldValue("phone", text)}
-        errorMessage={formik.errors.phone}
-      />
-      <Input
-        placeholder="Email"
-        onChangeText={(text) => formik.setFieldValue("email", text)}
-        errorMessage={formik.errors.email}
-      />
-      <Input
-        placeholder="Descripción"
+        placeholder="Description"
         multiline={true}
         inputContainerStyle={styles.textArea}
         onChangeText={(text) => formik.setFieldValue("description", text)}
