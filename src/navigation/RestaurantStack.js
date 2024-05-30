@@ -12,12 +12,12 @@ export function RestaurantStack() {
       <Stack.Screen
         name={screen.restaurant.restaurants}
         component={RestaurantsScreen}
-        options={{ title: "Restaurantes" }}
+        options={{ title: "Restaurantes", headerShown: false }}
       />
       <Stack.Screen
         name={screen.restaurant.restaurant}
         component={PublicationScreen}
-        options={{ title: "Publication" }}
+        options={{ title: "Garment" }}
       />
       <Stack.Screen
         name={screen.restaurant.addReviewRestaurant}

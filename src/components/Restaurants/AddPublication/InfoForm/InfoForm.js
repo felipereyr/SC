@@ -8,7 +8,7 @@ export function InfoForm(props) {
   return (
     <View style={styles.content}>
       <Input
-        placeholder="Name of product"
+        placeholder="Name of Garment"
         onChangeText={(text) => formik.setFieldValue("name", text)}
         errorMessage={formik.errors.name}
       />

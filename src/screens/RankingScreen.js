@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, View, Image } from "react-native";
 import {
   collection,
   query,
@@ -27,7 +27,17 @@ export function RankingScreen() {
   });
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "white", height: "100%" }}>
+      <View
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <View style={{ padding: 20 }}>
+          <Image source={require("../../assets/img/LogoL.png")} />
+        </View>
+      </View>
       {map(publications, (publication, index) => (
         <PublicationRanking
           key={index}

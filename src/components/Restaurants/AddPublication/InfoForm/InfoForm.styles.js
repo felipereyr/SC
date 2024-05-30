@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   textArea: {
-    height: 100,
+    height: 50,
     width: "100%",
     padding: 0,
     margin: 0,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, View, Image } from "react-native";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {
   UserNotLogged,
@@ -58,7 +58,17 @@ export function FavoritesScreen() {
   if (size(publications) === 0) return <NotFound />;
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "white", height: "100%" }}>
+      <View
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <View style={{ padding: 20 }}>
+          <Image source={require("../../assets/img/LogoL.png")} />
+        </View>
+      </View>
       {map(publications, (publication) => (
         <PublicationFav key={publication.id} publication={publication} />
       ))}

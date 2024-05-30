@@ -94,7 +94,7 @@ export function AppNavigation() {
                     backgroundColor: "#D6445B",
                     height: Platform.OS == "ios" ? 50 : 60,
                     width: Platform.OS == "ios" ? 50 : 60,
-                    top: Platform.OS == "ios" ? -10 : -20,
+
                     borderRadius: Platform.OS == "ios" ? 25 : 30,
                     borderWidth: 2,
                     borderColor: "white",

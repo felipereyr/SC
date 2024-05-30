@@ -5,8 +5,9 @@ import { db } from "../../../utils/firebase";
 import { useEffect } from "react";
 import { LoadingModal } from "../../../components/Shared";
 import { ListPublications } from "../../../components/Restaurants";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { Text } from "react-native-elements";
+import { FixedOffsetZone } from "luxon";
 
 export function RestaurantsScreen(props) {
   const [publications, setPublications] = useState(null);
@@ -23,7 +24,17 @@ export function RestaurantsScreen(props) {
   }, []);
 
   return (
-    <View>
+    <View style={{ backgroundColor: "white", height: "100%" }}>
+      <View
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <View style={{ padding: 20 }}>
+          <Image source={require("../../../../assets/img/LogoL.png")} />
+        </View>
+      </View>
       {!publications ? (
         <LoadingModal show text="Cargando" />
       ) : (

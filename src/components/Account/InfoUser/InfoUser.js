@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { Avatar, Text } from "react-native-elements";
 import * as ImagePicker from "expo-image-picker";
 import { getAuth, updateProfile } from "firebase/auth";
@@ -51,6 +51,13 @@ export function InfoUser(props) {
 
   return (
     <View style={styles.content}>
+      <View style={{ width: "100%" }}>
+        <Image
+          source={require("../../../../assets/img/bkProfile.png")}
+          style={{ height: 160, width: "100%" }}
+          resizeMode="cover"
+        />
+      </View>
       <Avatar
         size="large"
         rounded
@@ -63,7 +70,6 @@ export function InfoUser(props) {
 
       <View>
         <Text style={styles.displayName}>{displayName || "Anónimo"}</Text>
-        <Text>{email}</Text>
       </View>
     </View>
   );

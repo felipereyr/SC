@@ -10,6 +10,7 @@ export function AddPublicationStack() {
       <Stack.Screen
         name={screen.AddPublication.addPublication}
         component={AddPublicationScreen}
+        options={{ title: "New Garmet" }}
       />
     </Stack.Navigator>
   );

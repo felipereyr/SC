@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import { ListItem, Icon, Text } from "react-native-elements";
+import { ListItem, Icon, Button } from "react-native-elements";
+import { getAuth, signOut } from "firebase/auth";
 import { map } from "lodash";
 import { Modal } from "../../components";
 import { ChangeDisplayNameForm } from "./ChangeDisplayNameForm";
@@ -56,7 +57,6 @@ export function AccountOptions(props) {
           />
         </ListItem>
       ))}
-
       <Modal show={showModal} close={onCloseOpenModal}>
         {renderComponent}
       </Modal>

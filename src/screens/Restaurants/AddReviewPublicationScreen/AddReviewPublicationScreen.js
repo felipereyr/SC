@@ -75,9 +75,9 @@ export function AddReviewPublicationScreen(props) {
       await updateDoc(publicationRef, {
         ratingMedia: media,
       });
-
-      navigation.goBack();
     });
+
+    navigation.goBack();
   };
 
   return (

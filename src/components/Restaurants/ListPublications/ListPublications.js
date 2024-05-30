@@ -1,5 +1,5 @@
 import { View, FlatList, TouchableOpacity } from "react-native";
-import { Text, Image } from "react-native-elements";
+import { Text, Image, Button, Avatar } from "react-native-elements";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./ListPublications.styles";
@@ -19,19 +19,31 @@ export function ListPublications(props) {
         const publication = doc.item.data();
         console.log(publication);
         return (
-          <TouchableOpacity onPress={() => goToPublication(publication)}>
+          <View style={{}}>
             <View style={styles.publication}>
+              <View style={styles.user}>
+                <Avatar
+                  size={40}
+                  rounded
+                  containerStyle={{ backgroundColor: "black" }}
+                  icon={{ type: "material", name: "person" }}
+                ></Avatar>
+                <Text>Felipe__75</Text>
+              </View>
               <Image
                 source={{ uri: publication.images[0] }}
                 style={styles.image}
               />
-              <View>
+              <View style={styles.info}>
                 <Text style={styles.name}>{publication.name}</Text>
-                <Text style={styles.info}>{publication.shop}</Text>
-                <Text style={styles.info}>{publication.description}</Text>
+                <Button
+                  title="Details"
+                  buttonStyle={{ backgroundColor: "#352D2E", borderRadius: 6 }}
+                  onPress={() => goToPublication(publication)}
+                ></Button>
               </View>
             </View>
-          </TouchableOpacity>
+          </View>
         );
       }}
     />

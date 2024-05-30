@@ -4,14 +4,18 @@ export const styles = StyleSheet.create({
   content: {
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row",
-    paddingVertical: 30,
+    flexDirection: "column",
+    gap: 20,
   },
   avatar: {
-    marginRight: 20,
-    backgroundColor: "green",
+    backgroundColor: "white",
+    borderColor: "white",
+    borderWidth: 2,
+    marginTop: -50,
   },
   displayName: {
+    color: "#D6445B",
+    textAlign: "center",
     fontWeight: "bold",
     paddingBottom: 5,
   },
