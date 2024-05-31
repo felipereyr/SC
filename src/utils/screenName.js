@@ -26,7 +26,6 @@ const accountStack = {
   account: "Account",
   login: "Login",
   register: "Register",
-  sett: "sett",
 };
 
 export const screen = {

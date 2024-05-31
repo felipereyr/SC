@@ -1,11 +1,13 @@
-import { View, FlatList, TouchableOpacity } from "react-native";
-import { Text, Image, Button, Avatar } from "react-native-elements";
+import { View, Text, FlatList, Image } from "react-native";
 import React from "react";
+import { styles } from "./UserPublications.styles";
 import { useNavigation } from "@react-navigation/native";
-import { styles } from "./ListPublications.styles";
 import { screen } from "../../../utils";
+import { getAuth } from "firebase/auth";
+import { Avatar, Button } from "react-native-elements";
+import { doc } from "firebase/firestore";
 
-export function ListPublications(props) {
+export function UserPublications(props) {
   const { publications } = props;
   const navigation = useNavigation();
 

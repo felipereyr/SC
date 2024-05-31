@@ -13,10 +13,13 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     marginTop: -50,
   },
-  displayName: {
+  name: {
     color: "#D6445B",
-    textAlign: "center",
     fontWeight: "bold",
+    paddingBottom: 5,
+  },
+  displayName: {
+    textAlign: "center",
     paddingBottom: 5,
   },
 });

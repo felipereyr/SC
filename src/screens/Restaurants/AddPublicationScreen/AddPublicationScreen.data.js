@@ -1,4 +1,7 @@
 import * as Yup from "yup";
+import { getAuth } from "firebase/auth";
+
+const auth = getAuth();
 
 export function initialValues() {
   return {

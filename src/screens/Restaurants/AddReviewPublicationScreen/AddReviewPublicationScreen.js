@@ -76,7 +76,6 @@ export function AddReviewPublicationScreen(props) {
         ratingMedia: media,
       });
     });
-
     navigation.goBack();
   };
 

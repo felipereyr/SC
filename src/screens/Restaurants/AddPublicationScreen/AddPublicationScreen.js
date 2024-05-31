@@ -11,9 +11,11 @@ import { doc, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "../../../utils/firebase";
 import { useNavigation } from "@react-navigation/native";
+import { getAuth } from "firebase/auth";
 
-export function AddPublicationScreen() {
+export function AddPublicationScreen(props) {
   const navigation = useNavigation();
+  const { route } = props;
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -21,11 +23,16 @@ export function AddPublicationScreen() {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       try {
+        const auth = getAuth();
+        const idDoc = uuidv4();
         const newData = formValue;
-        newData.id = uuidv4();
+        newData.id = idDoc;
         newData.createdAt = new Date();
+        newData.user = auth.currentUser.displayName;
+        newData.idUser = auth.currentUser.uid;
+        newData.photo = auth.currentUser.photoURL;
 
-        await setDoc(doc(db, "publications", newData.id), newData);
+        await setDoc(doc(db, "publications", idDoc), newData);
 
         navigation.goBack();
       } catch (error) {

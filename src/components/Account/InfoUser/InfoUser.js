@@ -8,7 +8,7 @@ import { styles } from "./InfoUser.styles";
 
 export function InfoUser(props) {
   const { setLoading, setLoadingText } = props;
-  const { uid, photoURL, displayName, email } = getAuth().currentUser;
+  const { uid, photoURL, displayName } = getAuth().currentUser;
   const [avatar, setAvatar] = useState(photoURL);
 
   const changeAvatar = async () => {
@@ -18,7 +18,7 @@ export function InfoUser(props) {
       aspect: [4, 3],
     });
 
-    if (!result.cancelled) uploadImage(result.assets[0].uri);
+    if (!result.canceled) uploadImage(result.assets[0].uri);
   };
 
   const uploadImage = async (uri) => {
@@ -69,7 +69,7 @@ export function InfoUser(props) {
       </Avatar>
 
       <View>
-        <Text style={styles.displayName}>{displayName || "Anónimo"}</Text>
+        <Text style={styles.name}>{displayName || "Anónimo"}</Text>
       </View>
     </View>
   );
