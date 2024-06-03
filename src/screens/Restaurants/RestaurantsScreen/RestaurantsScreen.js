@@ -7,6 +7,7 @@ import { LoadingModal } from "../../../components/Shared";
 import { ListPublications } from "../../../components/Restaurants";
 import { View, Image } from "react-native";
 import { Text } from "react-native-elements";
+import { Loading } from "../../../components/Shared";
 import { FixedOffsetZone } from "luxon";
 
 export function RestaurantsScreen(props) {

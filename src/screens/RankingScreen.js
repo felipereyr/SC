@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView, View, Image } from "react-native";
+import { ScrollView, View, Image, Text } from "react-native";
 import {
   collection,
   query,
@@ -18,7 +18,7 @@ export function RankingScreen() {
     const q = query(
       collection(db, "publications"),
       orderBy("ratingMedia", "desc"),
-      limit(10)
+      limit(3)
     );
 
     onSnapshot(q, (snapshot) => {
@@ -38,6 +38,16 @@ export function RankingScreen() {
           <Image source={require("../../assets/img/LogoL.png")} />
         </View>
       </View>
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: "bold",
+          textAlign: "center",
+          marginBottom: 20,
+        }}
+      >
+        Ranking
+      </Text>
       {map(publications, (publication, index) => (
         <PublicationRanking
           key={index}

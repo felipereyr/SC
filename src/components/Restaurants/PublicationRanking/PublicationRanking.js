@@ -46,7 +46,6 @@ export function PublicationRanking(props) {
           </View>
           <Rating imageSize={15} readonly />
         </View>
-        <Text style={styles.description}>{publication.description}</Text>
       </View>
     </TouchableOpacity>
   );

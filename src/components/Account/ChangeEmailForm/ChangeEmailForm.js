@@ -24,15 +24,9 @@ export function ChangeEmailForm(props) {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       try {
+        const { description } = formValue;
         const currentUser = getAuth().currentUser;
-
-        const credentials = EmailAuthProvider.credential(
-          currentUser.email,
-          formValue.password
-        );
-        reauthenticateWithCredential(currentUser, credentials);
-
-        await updateEmail(currentUser, formValue.email);
+        await updateProfile(currentUser, { description });
 
         onReload();
         onClose();
@@ -40,7 +34,7 @@ export function ChangeEmailForm(props) {
         Toast.show({
           type: "error",
           position: "bottom",
-          text1: "Error al cambiar el email",
+          text1: "Error al cambiar el nombre y apellidos",
         });
       }
     },
@@ -49,9 +43,9 @@ export function ChangeEmailForm(props) {
   return (
     <View style={styles.content}>
       <Input
-        placeholder="Nuevo email"
+        placeholder="Description"
         containerStyle={styles.input}
-        onChangeText={(text) => formik.setFieldValue("email", text)}
+        onChangeText={(text) => formik.setFieldValue("description", text)}
         errorMessage={formik.errors.email}
       />
       <Input
@@ -68,7 +62,7 @@ export function ChangeEmailForm(props) {
         errorMessage={formik.errors.password}
       />
       <Button
-        title="Cambiar email"
+        title="Change description"
         containerStyle={styles.btnContainer}
         buttonStyle={styles.btn}
         onPress={formik.handleSubmit}

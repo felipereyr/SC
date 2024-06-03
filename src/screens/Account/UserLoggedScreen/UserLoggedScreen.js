@@ -42,9 +42,8 @@ export function UserLoggedScreen(props) {
   return (
     <ScrollView style={{ backgroundColor: "white", height: "100%" }}>
       <InfoUser setLoading={setLoading} setLoadingText={setLoadingText} />
-      <UserPublications publications={publications} />
       <AccountOptions onReload={onReload} />
-
+      <UserPublications publications={publications} />
       <Button
         title="Cerrar sesión"
         buttonStyle={styles.btnStyles}

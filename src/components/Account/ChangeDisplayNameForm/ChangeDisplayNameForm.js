@@ -45,7 +45,7 @@ export function ChangeDisplayNameForm(props) {
         errorMessage={formik.errors.displayName}
       />
       <Button
-        title="Cambiar nombre y apellidos"
+        title="Change Name User"
         containerStyle={styles.btnContainer}
         buttonStyle={styles.btn}
         onPress={formik.handleSubmit}

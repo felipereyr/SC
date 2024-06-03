@@ -4,6 +4,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./ListPublications.styles";
 import { screen } from "../../../utils";
+import { height } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
 
 export function ListPublications(props) {
   const { publications } = props;
@@ -15,11 +16,15 @@ export function ListPublications(props) {
   return (
     <FlatList
       data={publications}
+      horizontal={true}
       renderItem={(doc) => {
         const publication = doc.item.data();
-        console.log(publication);
         return (
-          <View style={{}}>
+          <View
+            style={{
+              marginTop: 50,
+            }}
+          >
             <View style={styles.publication}>
               <View style={styles.user}>
                 <Avatar source={{ uri: publication.photo }} rounded />

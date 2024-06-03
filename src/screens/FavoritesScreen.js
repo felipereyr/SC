@@ -53,8 +53,6 @@ export function FavoritesScreen() {
 
   if (!hasLogged) return <UserNotLogged />;
 
-  if (!publications) return <Loading show text="Loading" />;
-
   if (size(publications) === 0) return <NotFound />;
 
   return (

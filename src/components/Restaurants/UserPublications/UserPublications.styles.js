@@ -1,3 +1,16 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
-export const styles = StyleSheet.create({});
+const widthScreen = Dimensions.get("window").width;
+
+const width = widthScreen / 3;
+
+export const styles = StyleSheet.create({
+  image: {
+    width: width,
+    height: 125,
+  },
+  list: {
+    display: "grid",
+    flexDirection: "row",
+  },
+});

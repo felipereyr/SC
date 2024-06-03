@@ -8,11 +8,12 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 150,
+    height: 125,
+    resizeMode: "center",
   },
   infoContent: {
     paddingHorizontal: 20,
-    paddingTop: 15,
+    paddingTop: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

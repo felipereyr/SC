@@ -8,7 +8,7 @@ import { styles } from "./InfoUser.styles";
 
 export function InfoUser(props) {
   const { setLoading, setLoadingText } = props;
-  const { uid, photoURL, displayName } = getAuth().currentUser;
+  const { uid, photoURL, displayName, description } = getAuth().currentUser;
   const [avatar, setAvatar] = useState(photoURL);
 
   const changeAvatar = async () => {

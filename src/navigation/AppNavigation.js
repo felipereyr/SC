@@ -7,14 +7,11 @@ import { AddPublicationStack } from "./AddPublicationStack";
 import { FavoritesStack } from "../navigation/FavoritesStack";
 import { AccountStack } from "../navigation/AccountStack";
 import { screen } from "../utils";
-import { View, Text, Platform } from "react-native";
+import { View, Platform } from "react-native";
 import {
-  SimpleLineIcons,
   Fontisto,
-  MaterialCommunityIcons,
   MaterialIcons,
   FontAwesome6,
-  Ionicons,
   FontAwesome,
   Entypo,
 } from "@expo/vector-icons";

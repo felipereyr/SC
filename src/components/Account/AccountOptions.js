@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { ListItem, Icon, Button } from "react-native-elements";
-import { getAuth, signOut } from "firebase/auth";
+
 import { map } from "lodash";
 import { Modal } from "../../components";
 import { ChangeDisplayNameForm } from "./ChangeDisplayNameForm";
-import { ChangeEmailForm } from "./ChangeEmailForm";
 import { ChangePasswordForm } from "./ChangePasswordForm";
 
 export function AccountOptions(props) {
@@ -22,13 +21,6 @@ export function AccountOptions(props) {
         <ChangeDisplayNameForm onClose={onCloseOpenModal} onReload={onReload} />
       );
     }
-
-    if (key === "email") {
-      setRenderComponent(
-        <ChangeEmailForm onClose={onCloseOpenModal} onReload={onReload} />
-      );
-    }
-
     if (key === "password") {
       setRenderComponent(<ChangePasswordForm onClose={onCloseOpenModal} />);
     }
@@ -39,22 +31,16 @@ export function AccountOptions(props) {
   const menuOptions = getMenuOptions(selectedComponent);
 
   return (
-    <View>
+    <View style={styles.btn}>
       {map(menuOptions, (menu, index) => (
-        <ListItem key={index} bottomDivider onPress={menu.onPress}>
+        <ListItem key={index} onPress={menu.onPress} style={styles.item}>
           <Icon
             type={menu.iconType}
-            name={menu.iconNameLeft}
-            color={menu.iconColorLeft}
+            name={menu.iconNameCenter}
+            color={menu.iconColorCenter}
+            style={{ width: 50 }}
           />
-          <ListItem.Content>
-            <ListItem.Title>{menu.title}</ListItem.Title>
-          </ListItem.Content>
-          <Icon
-            tyoe={menu.iconType}
-            name={menu.iconNameRight}
-            color={menu.iconColorRight}
-          />
+          <ListItem.Content></ListItem.Content>
         </ListItem>
       ))}
       <Modal show={showModal} close={onCloseOpenModal}>
@@ -67,31 +53,31 @@ export function AccountOptions(props) {
 function getMenuOptions(selectedComponent) {
   return [
     {
-      title: "Cambiar Nombre y Apellidos",
       iconType: "material-community",
-      iconNameLeft: "account-circle",
-      iconColorLeft: "#ccc",
-      iconNameRight: "chevron-right",
-      iconColorRight: "#ccc",
+      iconNameCenter: "account-edit",
+      iconColorCenter: "#000",
       onPress: () => selectedComponent("displayName"),
     },
     {
-      title: "Cambiar Email",
       iconType: "material-community",
-      iconNameLeft: "at",
-      iconColorLeft: "#ccc",
-      iconNameRight: "chevron-right",
-      iconColorRight: "#ccc",
-      onPress: () => selectedComponent("email"),
-    },
-    {
-      title: "Cambiar contraseña",
-      iconType: "material-community",
-      iconNameLeft: "lock-reset",
-      iconColorLeft: "#ccc",
-      iconNameRight: "chevron-right",
-      iconColorRight: "#ccc",
+      iconNameCenter: "lock-reset",
+      iconColorCenter: "#000",
       onPress: () => selectedComponent("password"),
     },
   ];
 }
+
+const styles = StyleSheet.create({
+  btn: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+    gap: 20,
+  },
+  item: {
+    height: 60,
+    width: 100,
+  },
+});

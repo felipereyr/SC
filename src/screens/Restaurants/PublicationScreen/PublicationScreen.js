@@ -16,6 +16,7 @@ import { BtnFavorite } from "../../../components/Publication";
 import { Header } from "../../../components/Publication";
 import { BtnReviewForm } from "../../../components/Publication";
 import { Reviews } from "../../../components/Publication";
+import { Delete } from "../../../components/Publication";
 
 const { width } = Dimensions.get("window");
 

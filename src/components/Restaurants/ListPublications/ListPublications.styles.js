@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const widthScreen = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
   user: {
@@ -12,12 +14,13 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    margin: 15,
+    width: widthScreen,
   },
   image: {
-    width: 250,
-    height: 250,
-    marginRight: 15,
+    width: widthScreen,
+    height: 350,
+    borderWidth: 5,
+    borderColor: "#D6445B",
   },
   name: {
     textAlign: "center",
