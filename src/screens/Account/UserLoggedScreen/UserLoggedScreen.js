@@ -23,9 +23,13 @@ export function UserLoggedScreen(props) {
   const onReload = () => setReload((prevState) => !prevState);
   const [publications, setPublications] = useState(null);
 
+ const publicationsDb = collection(db, "publications");
+  const auth = getAuth();
+
   useEffect(() => {
     const q = query(
-      collection(db, "publications"),
+      publicationsDb,
+      where("idUser", "==", auth.currentUser.uid),
       orderBy("createdAt", "desc")
     );
 
