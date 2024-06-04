@@ -11,7 +11,7 @@ export function ListPublications(props) {
   const navigation = useNavigation();
 
   const goToPublication = (publication) => {
-    navigation.navigate(screen.restaurant.restaurant, { id: publication.id });
+    navigation.navigate(screen.publication.publication, { id: publication.id });
   };
   return (
     <FlatList

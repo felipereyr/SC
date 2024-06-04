@@ -17,7 +17,7 @@ export function RankingScreen() {
   useEffect(() => {
     const q = query(
       collection(db, "publications"),
-      orderBy("ratingMedia", "desc"),
+      orderBy("likes", "desc"),
       limit(3)
     );
 

@@ -31,6 +31,7 @@ export function AddPublicationScreen(props) {
         newData.user = auth.currentUser.displayName;
         newData.idUser = auth.currentUser.uid;
         newData.photo = auth.currentUser.photoURL;
+        newData.likes = 0;
 
         await setDoc(doc(db, "publications", idDoc), newData);
 

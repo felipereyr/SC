@@ -2,7 +2,6 @@ import { View, Linking } from "react-native";
 import React from "react";
 import { Text, Rating, Button } from "react-native-elements";
 import { styles } from "./Header.styles";
-import { Delete } from "../Delete";
 
 export function Header(props) {
   const { publication } = props;
@@ -31,7 +30,6 @@ export function Header(props) {
         onPress={() => openLink(link)}
         buttonStyle={{ backgroundColor: "#D6445B", marginTop: 40 }}
       />
-      <Delete />
     </View>
   );
 }

@@ -16,16 +16,20 @@ import {
 } from "firebase/firestore";
 import { db } from "../../../utils";
 
-export function UserLoggedScreen(props) {
+export function UserLoggedScreen(props, data) {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
   const [_, setReload] = useState(false);
   const onReload = () => setReload((prevState) => !prevState);
   const [publications, setPublications] = useState(null);
 
+  const publicationsDb = collection(db, "publications");
+  const auth = getAuth();
+
   useEffect(() => {
     const q = query(
-      collection(db, "publications"),
+      publicationsDb,
+      where("idUser", "==", auth.currentUser.uid),
       orderBy("createdAt", "desc")
     );
 
@@ -43,13 +47,13 @@ export function UserLoggedScreen(props) {
     <ScrollView style={{ backgroundColor: "white", height: "100%" }}>
       <InfoUser setLoading={setLoading} setLoadingText={setLoadingText} />
       <AccountOptions onReload={onReload} />
-      <UserPublications publications={publications} />
       <Button
         title="Cerrar sesión"
         buttonStyle={styles.btnStyles}
         titleStyle={styles.btnTextStyle}
         onPress={logout}
       />
+      <UserPublications publications={publications} />
 
       <LoadingModal show={loading} text={loadingText} />
     </ScrollView>

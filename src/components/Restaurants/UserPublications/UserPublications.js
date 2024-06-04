@@ -16,7 +16,7 @@ export function UserPublications(props) {
   const navigation = useNavigation();
 
   const goToPublication = (publication) => {
-    navigation.navigate(screen.restaurant.restaurant, { id: publication.id });
+    navigation.navigate(screen.publication.publication, { id: publication.id });
   };
   return (
     <ScrollView>
@@ -26,8 +26,6 @@ export function UserPublications(props) {
         contentContainerStyle={styles.list}
         renderItem={(doc) => {
           const publication = doc.item.data();
-          console.log(publication);
-
           return (
             <TouchableOpacity onPress={() => goToPublication(publication)}>
               <Image
