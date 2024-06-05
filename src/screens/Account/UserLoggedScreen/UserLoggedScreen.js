@@ -23,7 +23,11 @@ export function UserLoggedScreen(props, data) {
   const onReload = () => setReload((prevState) => !prevState);
   const [publications, setPublications] = useState(null);
 
+<<<<<<< HEAD
   const publicationsDb = collection(db, "publications");
+=======
+ const publicationsDb = collection(db, "publications");
+>>>>>>> 72cf61d8fa6443f7616e4a097c3c2611a5854092
   const auth = getAuth();
 
   useEffect(() => {
