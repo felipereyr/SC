@@ -7,11 +7,11 @@ import { screen } from "../../../utils";
 import { height } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
 
 export function ListPublications(props) {
-  const { publications } = props;
+  const { publications, onReload } = props;
   const navigation = useNavigation();
 
   const goToPublication = (publication) => {
-    navigation.navigate(screen.publication.publication, { id: publication.id });
+    navigation.navigate(screen.restaurant.restaurant, { id: publication.id });
   };
   return (
     <FlatList
@@ -27,8 +27,12 @@ export function ListPublications(props) {
           >
             <View style={styles.publication}>
               <View style={styles.user}>
-                <Avatar source={{ uri: publication.photo }} rounded />
-                <Text>{publication.user}</Text>
+                <Avatar
+                  source={{ uri: publication.photo }}
+                  rounded
+                  onReload={onReload}
+                />
+                <Text onReload={onReload}>{"@" + publication.user}</Text>
               </View>
               <Image
                 source={{ uri: publication.images[0] }}

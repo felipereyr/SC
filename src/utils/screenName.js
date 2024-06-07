@@ -1,9 +1,10 @@
-const publicationStack = {
-  tab: "PublicationsTab",
-  publications: "Publications",
-  addPublication: "AddPublication",
-  publication: "Publication",
-  addReviewPublication: "AddReviewPublication",
+const restaurantStack = {
+  tab: "RestaurantsTab",
+  restaurants: "Restaurants",
+  addRestaurant: "AddRestaurant",
+  restaurant: "Restaurant",
+  publicationUser: "UserPublication",
+  addReviewRestaurant: "AddReviewRestaurant",
 };
 
 const favoritesStack = {
@@ -29,7 +30,7 @@ const accountStack = {
 };
 
 export const screen = {
-  publication: publicationStack,
+  restaurant: restaurantStack,
   favorites: favoritesStack,
   ranking: rankingStack,
   AddPublication: addPublicationStack,

@@ -10,8 +10,8 @@ export function PublicationRanking(props) {
   const navigation = useNavigation();
 
   const goToPublication = () => {
-    navigation.navigate(screen.publication.tab, {
-      screen: screen.publication.publication,
+    navigation.navigate(screen.restaurant.tab, {
+      screen: screen.restaurant.restaurant,
       params: {
         id: publication.id,
       },
@@ -44,9 +44,13 @@ export function PublicationRanking(props) {
             {renderMedal()}
             <Text style={styles.name}>{publication.name}</Text>
           </View>
-          <Rating imageSize={15} readonly />
+          <Rating
+            imageSize={15}
+            readonly
+            startingValue={publication.ratingMedia}
+          />
         </View>
-        <Text style={styles.description}>{publication.user}</Text>
+        <Text style={styles.description}>{"@" + publication.user}</Text>
       </View>
     </TouchableOpacity>
   );

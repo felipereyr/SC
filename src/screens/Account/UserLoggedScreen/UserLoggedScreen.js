@@ -16,23 +16,18 @@ import {
 } from "firebase/firestore";
 import { db } from "../../../utils";
 
-export function UserLoggedScreen(props, data) {
+export function UserLoggedScreen(props) {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
   const [_, setReload] = useState(false);
   const onReload = () => setReload((prevState) => !prevState);
   const [publications, setPublications] = useState(null);
 
-<<<<<<< HEAD
-  const publicationsDb = collection(db, "publications");
-=======
- const publicationsDb = collection(db, "publications");
->>>>>>> 72cf61d8fa6443f7616e4a097c3c2611a5854092
   const auth = getAuth();
 
   useEffect(() => {
     const q = query(
-      publicationsDb,
+      collection(db, "publications"),
       where("idUser", "==", auth.currentUser.uid),
       orderBy("createdAt", "desc")
     );
@@ -42,23 +37,12 @@ export function UserLoggedScreen(props, data) {
     });
   }, []);
 
-  const logout = async () => {
-    const auth = getAuth();
-    await signOut(auth);
-  };
-
   return (
     <ScrollView style={{ backgroundColor: "white", height: "100%" }}>
       <InfoUser setLoading={setLoading} setLoadingText={setLoadingText} />
       <AccountOptions onReload={onReload} />
-      <Button
-        title="Cerrar sesión"
-        buttonStyle={styles.btnStyles}
-        titleStyle={styles.btnTextStyle}
-        onPress={logout}
-      />
-      <UserPublications publications={publications} />
 
+      <UserPublications publications={publications} />
       <LoadingModal show={loading} text={loadingText} />
     </ScrollView>
   );

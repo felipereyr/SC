@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { ListItem, Icon, Button } from "react-native-elements";
-
+import { getAuth, signOut } from "firebase/auth";
 import { map } from "lodash";
 import { Modal } from "../../components";
 import { ChangeDisplayNameForm } from "./ChangeDisplayNameForm";
@@ -12,6 +12,11 @@ export function AccountOptions(props) {
 
   const [showModal, setShowModal] = useState(false);
   const [renderComponent, setRenderComponent] = useState(null);
+
+  const logout = async () => {
+    const auth = getAuth();
+    await signOut(auth);
+  };
 
   const onCloseOpenModal = () => setShowModal((prevState) => !prevState);
 
@@ -43,6 +48,12 @@ export function AccountOptions(props) {
           <ListItem.Content></ListItem.Content>
         </ListItem>
       ))}
+      <Button
+        title="Logout"
+        buttonStyle={{ backgroundColor: "white" }}
+        titleStyle={{ color: "black" }}
+        onPress={logout}
+      />
       <Modal show={showModal} close={onCloseOpenModal}>
         {renderComponent}
       </Modal>

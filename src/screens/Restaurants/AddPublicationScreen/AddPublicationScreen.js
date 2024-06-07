@@ -15,7 +15,7 @@ import { getAuth } from "firebase/auth";
 
 export function AddPublicationScreen(props) {
   const navigation = useNavigation();
-  const { route } = props;
+  const { onReload } = props;
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -31,9 +31,9 @@ export function AddPublicationScreen(props) {
         newData.user = auth.currentUser.displayName;
         newData.idUser = auth.currentUser.uid;
         newData.photo = auth.currentUser.photoURL;
-        newData.likes = 0;
 
         await setDoc(doc(db, "publications", idDoc), newData);
+        onReload();
 
         navigation.goBack();
       } catch (error) {
@@ -41,6 +41,7 @@ export function AddPublicationScreen(props) {
       }
     },
   });
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <ImageRestaurant formik={formik} />

@@ -21,14 +21,14 @@ export function Header(props) {
         <Rating
           imageSize={20}
           readonly
-          startingValue={publication.ratingMedia | 0}
+          startingValue={publication.ratingMedia || 0}
         />
       </View>
       <Text style={styles.description}>{publication.description}</Text>
       <Button
         title="Shop Product"
         onPress={() => openLink(link)}
-        buttonStyle={{ backgroundColor: "#D6445B", marginTop: 40 }}
+        buttonStyle={{ backgroundColor: "#352D2E", marginTop: 40 }}
       />
     </View>
   );

@@ -12,6 +12,8 @@ import { FixedOffsetZone } from "luxon";
 
 export function PublicationsScreen(props) {
   const [publications, setPublications] = useState(null);
+  const [_, setReload] = useState(false);
+  const onReload = () => setReload((prevState) => !prevState);
 
   useEffect(() => {
     const q = query(
@@ -39,7 +41,7 @@ export function PublicationsScreen(props) {
       {!publications ? (
         <LoadingModal show text="Cargando" />
       ) : (
-        <ListPublications publications={publications} />
+        <ListPublications publications={publications} onReload={onReload} />
       )}
     </View>
   );

@@ -43,7 +43,7 @@ export function BtnReviewForm(props) {
   };
 
   const goToAddReview = () => {
-    navigation.navigate(screen.publication.addReviewPublication, {
+    navigation.navigate(screen.restaurant.addReviewRestaurant, {
       idPublication,
     });
   };

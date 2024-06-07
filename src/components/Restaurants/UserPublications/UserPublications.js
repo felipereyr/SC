@@ -16,25 +16,25 @@ export function UserPublications(props) {
   const navigation = useNavigation();
 
   const goToPublication = (publication) => {
-    navigation.navigate(screen.publication.publication, { id: publication.id });
+    navigation.navigate(screen.restaurant.publicationUser, {
+      id: publication.id,
+    });
+  };
+  const renderItem = async (doc) => {
+    const publication = doc.item.data();
+    return (
+      <TouchableOpacity onPress={() => goToPublication(publication)}>
+        <Image source={{ uri: publication.images[0] }} style={styles.image} />
+      </TouchableOpacity>
+    );
   };
   return (
     <ScrollView>
       <FlatList
         data={publications}
-        horizontal={true}
-        contentContainerStyle={styles.list}
-        renderItem={(doc) => {
-          const publication = doc.item.data();
-          return (
-            <TouchableOpacity onPress={() => goToPublication(publication)}>
-              <Image
-                source={{ uri: publication.images[0] }}
-                style={styles.image}
-              />
-            </TouchableOpacity>
-          );
-        }}
+        renderItem={renderItem}
+        columnWrapperStyle={styles.container}
+        numColumns={3}
       />
     </ScrollView>
   );

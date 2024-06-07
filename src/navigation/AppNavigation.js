@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { FeedStack } from "./FeedStack";
+import { RestaurantStack } from "../navigation/RestaurantStack";
 import { RankingStack } from "../navigation/RankingStack";
 import { AddPublicationStack } from "./AddPublicationStack";
 import { FavoritesStack } from "../navigation/FavoritesStack";
@@ -48,8 +48,8 @@ export function AppNavigation() {
       initialRouteName={screen.account.tab}
     >
       <Tab.Screen
-        name={screen.publication.tab}
-        component={FeedStack}
+        name={screen.restaurant.tab}
+        component={RestaurantStack}
         options={{
           tabBarIcon: ({ focused }) => {
             return (
