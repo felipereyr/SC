@@ -3,6 +3,7 @@ const publicationStack = {
   publications: "Publications",
   addPublication: "AddPublication",
   publication: "Publication",
+  publicationUser: "UserPublication",
   addReviewPublication: "AddReviewPublication",
 };
 
@@ -16,9 +17,9 @@ const rankingStack = {
   ranking: "Ranking",
 };
 
-const addPublicationStack = {
-  tab: "AddPublicationTab",
-  addPublication: "AddPublication",
+const searchStack = {
+  tab: "SearchTab",
+  search: "Search",
 };
 
 const accountStack = {
@@ -26,12 +27,13 @@ const accountStack = {
   account: "Account",
   login: "Login",
   register: "Register",
+  addPublication: "AddPublication",
 };
 
 export const screen = {
   publication: publicationStack,
   favorites: favoritesStack,
   ranking: rankingStack,
-  AddPublication: addPublicationStack,
+  search: searchStack,
   account: accountStack,
 };

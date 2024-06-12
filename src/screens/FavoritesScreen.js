@@ -45,7 +45,6 @@ export function FavoritesScreen() {
           newData.idFavorite = data.id;
           publicationArray.push(newData);
         }
-
         setPublications(publicationArray);
       });
     }

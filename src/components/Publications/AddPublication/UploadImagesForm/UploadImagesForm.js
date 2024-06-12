@@ -31,7 +31,7 @@ export function UploadImagesForm(props) {
     const blob = await response.blob();
 
     const storage = getStorage();
-    const storageRef = ref(storage, `restaurants/${uuidv4()}`);
+    const storageRef = ref(storage, `publications/${uuidv4()}`);
 
     uploadBytes(storageRef, blob).then((snapshot) => {
       updatePhotoPublication(snapshot.metadata.fullPath);

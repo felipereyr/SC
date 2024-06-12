@@ -16,7 +16,6 @@ import { BtnFavorite } from "../../../components/Publication";
 import { Header } from "../../../components/Publication";
 import { BtnReviewForm } from "../../../components/Publication";
 import { Reviews } from "../../../components/Publication";
-import { Delete } from "../../../components/Publication";
 
 const { width } = Dimensions.get("window");
 
@@ -32,8 +31,9 @@ export function PublicationScreen(props) {
   }, [route.params.id]);
 
   if (!publication) return <Loading show text="Cargando publicaciones" />;
+
   return (
-    <ScrollView style={styles.content}>
+    <ScrollView scrollEnabled style={styles.content}>
       <Carouselimg
         arrayImages={publication.images}
         height={250}

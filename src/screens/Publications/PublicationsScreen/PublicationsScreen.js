@@ -1,21 +1,31 @@
 import React, { useState } from "react";
-import { styles } from "./RestaurantsScreen.styles";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { styles } from "./PublicationsScreen.styles";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "../../../utils/firebase";
 import { useEffect } from "react";
+import { getAuth } from "firebase/auth";
 import { LoadingModal } from "../../../components/Shared";
-import { ListPublications } from "../../../components/Restaurants";
+import { ListPublications } from "../../../components/Publications";
 import { View, Image } from "react-native";
 import { Text } from "react-native-elements";
 import { Loading } from "../../../components/Shared";
 import { FixedOffsetZone } from "luxon";
 
-export function RestaurantsScreen(props) {
+export function PublicationsScreen(props) {
   const [publications, setPublications] = useState(null);
+
+  const auth = getAuth();
 
   useEffect(() => {
     const q = query(
       collection(db, "publications"),
+      where("idUser", "!=", auth.currentUser.uid),
       orderBy("createdAt", "desc")
     );
 

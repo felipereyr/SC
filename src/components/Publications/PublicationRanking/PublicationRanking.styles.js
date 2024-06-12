@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 125,
-    resizeMode: "center",
   },
   infoContent: {
     paddingHorizontal: 20,

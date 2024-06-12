@@ -2,7 +2,6 @@ import { View, Linking } from "react-native";
 import React from "react";
 import { Text, Rating, Button } from "react-native-elements";
 import { styles } from "./Header.styles";
-import { Delete } from "../Delete";
 
 export function Header(props) {
   const { publication } = props;
@@ -22,16 +21,15 @@ export function Header(props) {
         <Rating
           imageSize={20}
           readonly
-          startingValue={publication.ratingMedia | 0}
+          startingValue={publication.ratingMedia || 0}
         />
       </View>
       <Text style={styles.description}>{publication.description}</Text>
       <Button
         title="Shop Product"
         onPress={() => openLink(link)}
-        buttonStyle={{ backgroundColor: "#D6445B", marginTop: 40 }}
+        buttonStyle={{ backgroundColor: "#352D2E", marginTop: 40 }}
       />
-      <Delete />
     </View>
   );
 }

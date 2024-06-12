@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { RestaurantStack } from "../navigation/RestaurantStack";
+import { PublicationStack } from "./PublicationStack";
 import { RankingStack } from "../navigation/RankingStack";
 import { AddPublicationStack } from "./AddPublicationStack";
 import { FavoritesStack } from "../navigation/FavoritesStack";
@@ -10,7 +10,7 @@ import { screen } from "../utils";
 import { View, Platform } from "react-native";
 import {
   Fontisto,
-  MaterialIcons,
+  MaterialCommunityIcons,
   FontAwesome6,
   FontAwesome,
   Entypo,
@@ -48,8 +48,8 @@ export function AppNavigation() {
       initialRouteName={screen.account.tab}
     >
       <Tab.Screen
-        name={screen.restaurant.tab}
-        component={RestaurantStack}
+        name={screen.publication.tab}
+        component={PublicationStack}
         options={{
           tabBarIcon: ({ focused }) => {
             return (
@@ -79,7 +79,7 @@ export function AppNavigation() {
       />
       {currentUser && (
         <Tab.Screen
-          name={screen.AddPublication.tab}
+          name={screen.search.tab}
           component={AddPublicationStack}
           options={{
             tabBarIcon: ({ focused }) => {
@@ -91,6 +91,7 @@ export function AppNavigation() {
                     backgroundColor: "#D6445B",
                     height: Platform.OS == "ios" ? 50 : 60,
                     width: Platform.OS == "ios" ? 50 : 60,
+                    top: Platform.OS == "ios" ? -5 : -10,
 
                     borderRadius: Platform.OS == "ios" ? 25 : 30,
                     borderWidth: 2,
@@ -111,9 +112,9 @@ export function AppNavigation() {
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              <MaterialIcons
-                name="favorite"
-                size={24}
+              <MaterialCommunityIcons
+                name="hanger"
+                size={32}
                 color={focused ? "#D6445B" : "black"}
               />
             );

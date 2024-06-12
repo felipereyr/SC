@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Image, View, ScrollView } from "react-native";
-import { Button, Avatar } from "react-native-elements";
-import { getAuth, signOut } from "firebase/auth";
+import { View, ScrollView } from "react-native";
+import { Avatar, Text } from "react-native-elements";
+import { getAuth } from "firebase/auth";
 import { LoadingModal } from "../../../components";
 import { InfoUser, AccountOptions } from "../../../components/Account";
 import { styles } from "./UserLoggedScreen.styles";
-import { SafeAreaView } from "react-native";
-import { UserPublications } from "../../../components/Restaurants";
+import { useNavigation } from "@react-navigation/native";
+
+import { UserPublications } from "../../../components/Publications";
 import {
   collection,
   onSnapshot,
@@ -22,13 +23,13 @@ export function UserLoggedScreen(props) {
   const [_, setReload] = useState(false);
   const onReload = () => setReload((prevState) => !prevState);
   const [publications, setPublications] = useState(null);
+  const navigation = useNavigation();
 
- const publicationsDb = collection(db, "publications");
   const auth = getAuth();
 
   useEffect(() => {
     const q = query(
-      publicationsDb,
+      collection(db, "publications"),
       where("idUser", "==", auth.currentUser.uid),
       orderBy("createdAt", "desc")
     );
@@ -38,23 +39,14 @@ export function UserLoggedScreen(props) {
     });
   }, []);
 
-  const logout = async () => {
-    const auth = getAuth();
-    await signOut(auth);
-  };
-
   return (
     <ScrollView style={{ backgroundColor: "white", height: "100%" }}>
       <InfoUser setLoading={setLoading} setLoadingText={setLoadingText} />
       <AccountOptions onReload={onReload} />
+      <View style={styles.second}>
+        <Text style={styles.text}>YOUR CLOSET</Text>
+      </View>
       <UserPublications publications={publications} />
-      <Button
-        title="Cerrar sesión"
-        buttonStyle={styles.btnStyles}
-        titleStyle={styles.btnTextStyle}
-        onPress={logout}
-      />
-
       <LoadingModal show={loading} text={loadingText} />
     </ScrollView>
   );

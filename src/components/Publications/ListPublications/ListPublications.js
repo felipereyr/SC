@@ -1,18 +1,18 @@
-import { View, FlatList, TouchableOpacity } from "react-native";
+import { View, FlatList } from "react-native";
 import { Text, Image, Button, Avatar } from "react-native-elements";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./ListPublications.styles";
 import { screen } from "../../../utils";
-import { height } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
 
 export function ListPublications(props) {
-  const { publications } = props;
+  const { publications, onReload } = props;
   const navigation = useNavigation();
 
   const goToPublication = (publication) => {
-    navigation.navigate(screen.restaurant.restaurant, { id: publication.id });
+    navigation.navigate(screen.publication.publication, { id: publication.id });
   };
+
   return (
     <FlatList
       data={publications}
@@ -28,7 +28,7 @@ export function ListPublications(props) {
             <View style={styles.publication}>
               <View style={styles.user}>
                 <Avatar source={{ uri: publication.photo }} rounded />
-                <Text>{publication.user}</Text>
+                <Text>{"@" + publication.user}</Text>
               </View>
               <Image
                 source={{ uri: publication.images[0] }}

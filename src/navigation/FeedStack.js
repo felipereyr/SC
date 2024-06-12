@@ -1,28 +1,28 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RestaurantsScreen } from "../screens/Restaurants/RestaurantsScreen";
+import { PublicationsScreen } from "../screens/Restaurants/PublicationsScreen";
 import { PublicationScreen } from "../screens/Restaurants/PublicationScreen";
 import { AddReviewPublicationScreen } from "../screens/Restaurants/AddReviewPublicationScreen/AddReviewPublicationScreen";
 import { screen } from "../utils";
 
 const Stack = createNativeStackNavigator();
 
-export function RestaurantStack() {
+export function FeedStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={screen.restaurant.restaurants}
-        component={RestaurantsScreen}
-        options={{ title: "Restaurantes", headerShown: false }}
+        name={screen.publication.publications}
+        component={PublicationsScreen}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
-        name={screen.restaurant.restaurant}
+        name={screen.publication.publication}
         component={PublicationScreen}
         options={{ title: "Garment" }}
       />
       <Stack.Screen
-        name={screen.restaurant.addReviewRestaurant}
+        name={screen.publication.addReviewPublication}
         component={AddReviewPublicationScreen}
-        options={{ title: "Review" }}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

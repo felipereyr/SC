@@ -43,7 +43,7 @@ export function BtnReviewForm(props) {
   };
 
   const goToAddReview = () => {
-    navigation.navigate(screen.restaurant.addReviewRestaurant, {
+    navigation.navigate(screen.publication.addReviewPublication, {
       idPublication,
     });
   };
@@ -51,7 +51,9 @@ export function BtnReviewForm(props) {
   if (hasLogged && hasReview) {
     return (
       <View style={styles.content}>
-        <Text style={styles.textSendReview}>Ya has enviado una review</Text>
+        <Text style={styles.textSendReview}>
+          You have already submitted a review
+        </Text>
       </View>
     );
   }

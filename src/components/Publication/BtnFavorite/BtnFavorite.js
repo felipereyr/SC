@@ -79,7 +79,7 @@ export function BtnFavorite(props) {
       {isFavorite !== undefined && (
         <Icon
           type="material-community"
-          name={isFavorite ? "heart" : "heart-outline"}
+          name={isFavorite ? "hanger" : "hanger"}
           color={isFavorite ? "#f00" : "#000"}
           size={35}
           onPress={isFavorite ? removeFavorite : addFavorite}

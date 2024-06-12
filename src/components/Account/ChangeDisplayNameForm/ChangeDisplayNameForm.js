@@ -26,7 +26,7 @@ export function ChangeDisplayNameForm(props) {
         Toast.show({
           type: "error",
           position: "bottom",
-          text1: "Error al cambiar el nombre y apellidos",
+          text1: "Error changing name",
         });
       }
     },
@@ -35,7 +35,7 @@ export function ChangeDisplayNameForm(props) {
   return (
     <View style={styles.content}>
       <Input
-        placeholder="Nombre y apellidos"
+        placeholder="Name"
         rightIcon={{
           type: "material-community",
           name: "account-circle-outline",

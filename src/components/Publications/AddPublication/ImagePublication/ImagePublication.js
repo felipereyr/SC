@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { styles } from "./ImageRestaurant.styles";
+import { styles } from "./ImagePublication.styles";
 import { Image } from "react-native-elements";
 
-export function ImageRestaurant(props) {
+export function ImagePublication(props) {
   const { formik } = props;
 
   const primaryImage = formik.values.images[0];

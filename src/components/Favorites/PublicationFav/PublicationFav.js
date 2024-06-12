@@ -11,8 +11,8 @@ export function PublicationFav(props) {
   const navigation = useNavigation();
 
   const goToPublication = () => {
-    navigation.navigate(screen.restaurant.tab, {
-      screen: screen.restaurant.restaurant,
+    navigation.navigate(screen.publication.tab, {
+      screen: screen.publication.publication,
       params: {
         id: publication.id,
       },
@@ -34,7 +34,7 @@ export function PublicationFav(props) {
           <Text>{publication.name}</Text>
           <Icon
             type="material-community"
-            name="heart"
+            name="hanger"
             color="#f10"
             size={35}
             containerStyle={styles.iconContainer}
