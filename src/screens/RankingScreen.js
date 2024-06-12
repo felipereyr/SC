@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 import { map } from "lodash";
 import { db } from "../utils";
-import { PublicationRanking } from "../components/Restaurants";
+import { PublicationRanking } from "../components/Publications";
 
 export function RankingScreen() {
   const [publications, setPublications] = useState(null);
@@ -18,7 +18,7 @@ export function RankingScreen() {
     const q = query(
       collection(db, "publications"),
       orderBy("ratingMedia", "desc"),
-      limit(3)
+      limit(10)
     );
 
     onSnapshot(q, (snapshot) => {

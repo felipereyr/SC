@@ -16,7 +16,7 @@ export function UserPublications(props) {
   const navigation = useNavigation();
 
   const goToPublication = (publication) => {
-    navigation.navigate(screen.restaurant.publicationUser, {
+    navigation.navigate(screen.publication.publicationUser, {
       id: publication.id,
     });
   };
@@ -29,7 +29,7 @@ export function UserPublications(props) {
     );
   };
   return (
-    <ScrollView>
+    <ScrollView style={{ marginTop: 30 }}>
       <FlatList
         data={publications}
         renderItem={renderItem}

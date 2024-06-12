@@ -39,7 +39,7 @@ export function ChangePasswordForm(props) {
         Toast.show({
           type: "error",
           position: "bottom",
-          text1: "Error al cambiar la contraseña",
+          text1: "Error changing password",
         });
       }
     },
@@ -48,7 +48,7 @@ export function ChangePasswordForm(props) {
   return (
     <View style={styles.content}>
       <Input
-        placeholder="Contraseña actual"
+        placeholder="Current password"
         containerStyle={styles.input}
         secureTextEntry={showPassword ? false : true}
         rightIcon={{
@@ -61,7 +61,7 @@ export function ChangePasswordForm(props) {
         errorMessage={formik.errors.password}
       />
       <Input
-        placeholder="Nueva contraseña"
+        placeholder="New password"
         containerStyle={styles.input}
         secureTextEntry={showPassword ? false : true}
         rightIcon={{
@@ -74,7 +74,7 @@ export function ChangePasswordForm(props) {
         errorMessage={formik.errors.newPassword}
       />
       <Input
-        placeholder="Repite nueva contraseña"
+        placeholder="Repeat the new password"
         containerStyle={styles.input}
         secureTextEntry={showPassword ? false : true}
         rightIcon={{
@@ -89,7 +89,7 @@ export function ChangePasswordForm(props) {
         errorMessage={formik.errors.confirmNewPassword}
       />
       <Button
-        title="Cambiar contraseña"
+        title="Change password"
         containerStyle={styles.btnContainer}
         buttonStyle={styles.btn}
         onPress={formik.handleSubmit}

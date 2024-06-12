@@ -4,18 +4,16 @@ export function initialValues() {
   return {
     email: "",
     password: "",
-    repeatPassword: "",
+    repe: "",
   };
 }
 
 export function validationSchema() {
   return Yup.object({
-    email: Yup.string()
-      .email("El email no es correcto")
-      .required("El email es obligatorio"),
-    password: Yup.string().required("La contraseña es obligatoria"),
+    email: Yup.string().email("Invalid email").required("Email is mandatory"),
+    password: Yup.string().required("The password is mandatory"),
     repeatPassword: Yup.string()
-      .required("La contraseña es obligatoria")
-      .oneOf([Yup.ref("password")], "Las contraseñas tienen que ser iguales"),
+      .required("The password is mandatory")
+      .oneOf([Yup.ref("password")], "Passwords must be the same"),
   });
 }

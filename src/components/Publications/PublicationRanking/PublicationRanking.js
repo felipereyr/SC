@@ -10,8 +10,8 @@ export function PublicationRanking(props) {
   const navigation = useNavigation();
 
   const goToPublication = () => {
-    navigation.navigate(screen.restaurant.tab, {
-      screen: screen.restaurant.restaurant,
+    navigation.navigate(screen.publication.tab, {
+      screen: screen.publication.publication,
       params: {
         id: publication.id,
       },
@@ -19,12 +19,13 @@ export function PublicationRanking(props) {
   };
 
   const renderMedal = () => {
-    if (index > 2) return null;
+    if (index > 10) return null;
 
     let color = "";
     if (index === 0) color = "#FFD700";
     if (index === 1) color = "#BEBEBE";
     if (index === 2) color = "#CD7F32";
+    if (index > 2) color = "#000000";
     return (
       <Icon
         type="material-community"

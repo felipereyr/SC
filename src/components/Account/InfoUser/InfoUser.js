@@ -69,7 +69,7 @@ export function InfoUser(props) {
       </Avatar>
 
       <View>
-        <Text style={styles.name}>{displayName || "Anónimo"}</Text>
+        <Text style={styles.name}>{displayName || "Guest"}</Text>
       </View>
     </View>
   );

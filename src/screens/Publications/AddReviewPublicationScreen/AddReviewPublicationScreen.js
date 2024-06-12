@@ -43,7 +43,7 @@ export function AddReviewPublicationScreen(props) {
         newData.createdAt = new Date();
 
         await setDoc(doc(db, "reviews", idDoc), newData);
-        await updateRestaurant();
+        await updatePublication();
       } catch (error) {
         Toast.show({
           type: "error",
@@ -54,7 +54,7 @@ export function AddReviewPublicationScreen(props) {
     },
   });
 
-  const updateRestaurant = async () => {
+  const updatePublication = async () => {
     const q = query(
       collection(db, "reviews"),
       where("idPublication", "==", route.params.idPublication)

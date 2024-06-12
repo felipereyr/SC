@@ -8,6 +8,6 @@ export function initialValues() {
 
 export function validationSchema() {
   return Yup.object({
-    displayName: Yup.string().required("El nombre y apellidos son requeridos"),
+    displayName: Yup.string().required("Name is required"),
   });
 }

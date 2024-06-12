@@ -8,21 +8,21 @@ const Stack = createNativeStackNavigator();
 
 export function AccountStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator>
       <Stack.Screen
         name={screen.account.account}
         component={AccountScreen}
-        options={{ title: "Cuenta" }}
+        options={{ title: "Cuenta", headerShown: false }}
       />
       <Stack.Screen
         name={screen.account.login}
         component={LoginScreen}
-        options={{ title: "Iniciar sesión" }}
+        options={{ title: "Iniciar sesión", headerShown: false }}
       />
       <Stack.Screen
         name={screen.account.register}
         component={RegisterScreen}
-        options={{ title: "Crea tu cuenta" }}
+        options={{ title: "Crea tu cuenta", headerShown: false }}
       />
     </Stack.Navigator>
   );

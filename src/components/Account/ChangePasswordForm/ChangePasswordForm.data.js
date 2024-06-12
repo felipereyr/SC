@@ -10,13 +10,10 @@ export function initialValues() {
 
 export function validationSchema() {
   return Yup.object({
-    password: Yup.string().required("Este campo es obligatorio"),
-    newPassword: Yup.string().required("Este campo es obligatorio"),
+    password: Yup.string().required("This field is required"),
+    newPassword: Yup.string().required("This field is required"),
     confirmNewPassword: Yup.string()
-      .required("Este campo es obligatorio")
-      .oneOf(
-        [Yup.ref("newPassword")],
-        "Las nuevas contraseñas tienen que ser iguales"
-      ),
+      .required("This field is required")
+      .oneOf([Yup.ref("newPassword")], "New passwords must be the same"),
   });
 }

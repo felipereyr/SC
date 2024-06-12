@@ -3,11 +3,14 @@ import { View, ScrollView } from "react-native";
 import { Button } from "react-native-elements";
 import { useFormik } from "formik";
 import { styles } from "./AddPublicationScreen.styles";
-import { InfoForm } from "../../../components/Restaurants/AddPublication/InfoForm";
+import {
+  InfoForm,
+  UploadImagesForm,
+  ImagePublication,
+} from "../../../components/Publications";
 import { validationSchema, initialValues } from "./AddPublicationScreen.data";
-import { UploadImagesForm } from "../../../components/Restaurants/AddPublication/UploadImagesForm";
-import { ImageRestaurant } from "../../../components/Restaurants/AddPublication/ImageRestaurant";
-import { doc, setDoc } from "firebase/firestore";
+
+import { collection, doc, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "../../../utils/firebase";
 import { useNavigation } from "@react-navigation/native";
@@ -31,9 +34,7 @@ export function AddPublicationScreen(props) {
         newData.user = auth.currentUser.displayName;
         newData.idUser = auth.currentUser.uid;
         newData.photo = auth.currentUser.photoURL;
-
         await setDoc(doc(db, "publications", idDoc), newData);
-        onReload();
 
         navigation.goBack();
       } catch (error) {
@@ -44,7 +45,7 @@ export function AddPublicationScreen(props) {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <ImageRestaurant formik={formik} />
+      <ImagePublication formik={formik} />
       <InfoForm formik={formik} />
       <UploadImagesForm formik={formik} />
       <Button

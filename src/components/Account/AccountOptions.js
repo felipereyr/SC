@@ -7,6 +7,8 @@ import { Modal } from "../../components";
 import { ChangeDisplayNameForm } from "./ChangeDisplayNameForm";
 import { ChangePasswordForm } from "./ChangePasswordForm";
 
+const auth = getAuth();
+
 export function AccountOptions(props) {
   const { onReload } = props;
 
@@ -21,6 +23,7 @@ export function AccountOptions(props) {
   const onCloseOpenModal = () => setShowModal((prevState) => !prevState);
 
   const selectedComponent = (key) => {
+    console.log(auth.currentUser);
     if (key === "displayName") {
       setRenderComponent(
         <ChangeDisplayNameForm onClose={onCloseOpenModal} onReload={onReload} />

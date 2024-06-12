@@ -1,4 +1,4 @@
-import { ScrollView, Text, Dimension, Dimensions } from "react-native";
+import { ScrollView, Text, Dimension, Dimensions, Button } from "react-native";
 import React, { useEffect, useState } from "react";
 import { styles } from "./PublicationUserScreen.styles";
 import {
@@ -13,11 +13,10 @@ import {
 import { Carouselimg } from "../../../components/Shared";
 import { Loading } from "../../../components/Shared";
 import { db } from "../../../utils";
-import { BtnFavorite } from "../../../components/Publication";
+
 import { Header } from "../../../components/Publication";
-import { BtnReviewForm } from "../../../components/Publication";
+
 import { Reviews } from "../../../components/Publication";
-import { DeletePublication } from "../../../components/Restaurants/DeletePublication";
 
 const { width } = Dimensions.get("window");
 
@@ -41,10 +40,8 @@ export function PublicationUserScreen(props) {
         height={250}
         width={width}
       />
-
       <Header publication={publication} />
-      <DeletePublication idPublication={route.params.id} />
-      <BtnReviewForm idPublication={route.params.id} />
+      <Button />
       <Reviews idPublication={route.params.id} />
     </ScrollView>
   );
