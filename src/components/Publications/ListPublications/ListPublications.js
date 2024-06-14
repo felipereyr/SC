@@ -1,51 +1,40 @@
-import { View, FlatList } from "react-native";
-import { Text, Image, Button, Avatar } from "react-native-elements";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
 import { styles } from "./ListPublications.styles";
+import { useNavigation } from "@react-navigation/native";
 import { screen } from "../../../utils";
 
 export function ListPublications(props) {
-  const { publications, onReload } = props;
+  const { publications } = props;
   const navigation = useNavigation();
 
   const goToPublication = (publication) => {
-    navigation.navigate(screen.publication.publication, { id: publication.id });
+    navigation.navigate(screen.publication.publication, {
+      id: publication.id,
+    });
   };
-
+  const renderItem = async (doc) => {
+    const publication = doc.item.data();
+    return (
+      <TouchableOpacity onPress={() => goToPublication(publication)}>
+        <Image source={{ uri: publication.images[0] }} style={styles.image} />
+      </TouchableOpacity>
+    );
+  };
   return (
     <FlatList
       data={publications}
-      horizontal={true}
-      renderItem={(doc) => {
-        const publication = doc.item.data();
-        return (
-          <View
-            style={{
-              marginTop: 50,
-            }}
-          >
-            <View style={styles.publication}>
-              <View style={styles.user}>
-                <Avatar source={{ uri: publication.photo }} rounded />
-                <Text>{"@" + publication.user}</Text>
-              </View>
-              <Image
-                source={{ uri: publication.images[0] }}
-                style={styles.image}
-              />
-              <View style={styles.info}>
-                <Text style={styles.name}>{publication.name}</Text>
-                <Button
-                  title="Details"
-                  buttonStyle={{ backgroundColor: "#352D2E", borderRadius: 6 }}
-                  onPress={() => goToPublication(publication)}
-                ></Button>
-              </View>
-            </View>
-          </View>
-        );
-      }}
+      renderItem={renderItem}
+      columnWrapperStyle={styles.container}
+      numColumns={2}
+      contentContainerStyle={{ paddingBottom: 100, marginTop: 20 }}
     />
   );
 }

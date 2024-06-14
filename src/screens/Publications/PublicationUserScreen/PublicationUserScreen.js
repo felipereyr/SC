@@ -41,7 +41,7 @@ export function PublicationUserScreen(props) {
         width={width}
       />
       <Header publication={publication} />
-      <Button />
+
       <Reviews idPublication={route.params.id} />
     </ScrollView>
   );

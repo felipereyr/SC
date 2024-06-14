@@ -29,13 +29,12 @@ export function UserPublications(props) {
     );
   };
   return (
-    <ScrollView style={{ marginTop: 30 }}>
-      <FlatList
-        data={publications}
-        renderItem={renderItem}
-        columnWrapperStyle={styles.container}
-        numColumns={3}
-      />
-    </ScrollView>
+    <FlatList
+      data={publications}
+      renderItem={renderItem}
+      columnWrapperStyle={styles.container}
+      numColumns={3}
+      contentContainerStyle={{ paddingBottom: 100, marginTop: 20 }}
+    />
   );
 }

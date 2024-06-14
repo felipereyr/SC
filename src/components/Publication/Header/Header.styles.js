@@ -17,4 +17,8 @@ export const styles = StyleSheet.create({
     marginTop: 5,
     color: "#828282",
   },
+  descriptionN: {
+    marginTop: 5,
+    color: "#D6445B",
+  },
 });
