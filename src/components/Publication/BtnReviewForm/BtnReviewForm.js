@@ -1,19 +1,18 @@
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
-import React, { useEffect, useState } from "react";
-import { styles } from "./BtnReviewForm.styles";
 import { Text, Button } from "react-native-elements";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { query, collection, where, onSnapshot } from "firebase/firestore";
-import { size } from "lodash";
-import { screen } from "../../../utils";
 import { useNavigation } from "@react-navigation/native";
-import { db } from "../../../utils";
+import { size } from "lodash";
+import { screen, db } from "../../../utils";
+import { styles } from "./BtnReviewForm.styles"
 
 export function BtnReviewForm(props) {
   const { idPublication } = props;
-  const navigation = useNavigation();
   const [hasLogged, setHasLogged] = useState(false);
   const [hasReview, setHasReview] = useState(false);
+  const navigation = useNavigation();
   const auth = getAuth();
 
   useEffect(() => {
@@ -52,7 +51,7 @@ export function BtnReviewForm(props) {
     return (
       <View style={styles.content}>
         <Text style={styles.textSendReview}>
-          You have already submitted a review
+        You have already submitted a review for this garment
         </Text>
       </View>
     );
@@ -62,11 +61,11 @@ export function BtnReviewForm(props) {
     <View style={styles.content}>
       {hasLogged ? (
         <Button
-          title="Type a review"
+          title="Escribe una opinión"
           icon={{
             type: "material-community",
             name: "square-edit-outline",
-            color: "#D6445B",
+            color: "#00a680",
           }}
           buttonStyle={styles.button}
           titleStyle={styles.btnText}
@@ -74,8 +73,8 @@ export function BtnReviewForm(props) {
         />
       ) : (
         <Text style={styles.text} onPress={goToLogin}>
-          For type, you need to stay logged.
-          <Text style={styles.textClick}>Pulse HERE to log in</Text>
+          To write a review you need to log in{" "}
+          <Text style={styles.textClick}>click HERE to log in</Text>
         </Text>
       )}
     </View>

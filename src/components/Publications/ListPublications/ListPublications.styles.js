@@ -1,4 +1,6 @@
+
 import { getApp } from "firebase/app";
+
 import { StyleSheet, Dimensions } from "react-native";
 
 const widthScreen = Dimensions.get("window").width;

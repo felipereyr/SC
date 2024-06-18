@@ -11,7 +11,7 @@ import {
   query,
   collection,
   where,
-  onSnapshot,
+  getDocs,
   updateDoc,
 } from "firebase/firestore";
 import { map, mean } from "lodash";
@@ -48,22 +48,22 @@ export function AddReviewPublicationScreen(props) {
         Toast.show({
           type: "error",
           position: "bottom",
-          text1: "Errro al enviar la review",
+          text1: "Error al enviar la review",
         });
       }
     },
   });
 
   const updatePublication = async () => {
-    const q = query(
-      collection(db, "reviews"),
-      where("idPublication", "==", route.params.idPublication)
-    );
+    try {
+      const q = query(
+        collection(db, "reviews"),
+        where("idPublication", "==", route.params.idPublication)
+      );
 
-    onSnapshot(q, async (snapshot) => {
+      const snapshot = await getDocs(q);
       const reviews = snapshot.docs;
       const arrayStars = map(reviews, (review) => review.data().rating);
-
       const media = mean(arrayStars);
 
       const publicationRef = doc(
@@ -75,8 +75,15 @@ export function AddReviewPublicationScreen(props) {
       await updateDoc(publicationRef, {
         ratingMedia: media,
       });
+
       navigation.goBack();
-    });
+    } catch (error) {
+      Toast.show({
+        type: "error",
+        position: "bottom",
+        text1: "Error al actualizar la publicación",
+      });
+    }
   };
 
   return (
@@ -86,7 +93,7 @@ export function AddReviewPublicationScreen(props) {
           <AirbnbRating
             count={5}
             reviews={[
-              "Pesimo",
+              "Pésimo",
               "Deficiente",
               "Normal",
               "Muy bueno",
@@ -100,7 +107,7 @@ export function AddReviewPublicationScreen(props) {
 
         <View>
           <Input
-            placeholder="Titulo"
+            placeholder="Título"
             onChangeText={(text) => formik.setFieldValue("title", text)}
             errorMessage={formik.errors.title}
           />

@@ -7,24 +7,40 @@ import {
   limit,
   onSnapshot,
 } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { map } from "lodash";
 import { db } from "../utils";
+import { UserNotLogged } from "../components/Favorites/UserNotLogged";
 import { PublicationRanking } from "../components/Publications";
 
 export function RankingScreen() {
   const [publications, setPublications] = useState(null);
+  const [hasLogged, setHasLogged] = useState(null);
+ 
+  const auth = getAuth();
 
   useEffect(() => {
-    const q = query(
-      collection(db, "publications"),
-      orderBy("ratingMedia", "desc"),
-      limit(10)
-    );
-
-    onSnapshot(q, (snapshot) => {
-      setPublications(snapshot.docs);
+    onAuthStateChanged(auth, (user) => {
+      setHasLogged(user ? true : false);
     });
-  });
+  }, []);
+
+  useEffect(() => {
+    if(auth?.currentUser){
+      const q = query(
+        collection(db, "publications"),
+        orderBy("ratingMedia", "desc"),
+        limit(10)
+      );
+  
+      onSnapshot(q, (snapshot) => {
+        setPublications(snapshot.docs);
+      });
+    }
+    
+  }, [auth]);
+
+  if (!hasLogged) return <UserNotLogged />;
 
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
