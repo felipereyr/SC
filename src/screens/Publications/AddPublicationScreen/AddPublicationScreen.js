@@ -46,9 +46,7 @@ export function AddPublicationScreen(props) {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <ImagePublication formik={formik} />
-      <InfoForm formik={formik} />
-      <UploadImagesForm formik={formik} />
-      <Button
+      <InfoForm formik={formik} 
         title="Crear publicación"
         loading={formik.isSubmitting}
         buttonStyle={styles.btn}
