@@ -44,9 +44,7 @@ export function Reviews(props) {
           <ListItem key={data.id} bottomDivider containerStyle={styles.review}>
             <Avatar source={{ uri: data.avatar }} size={50} rounded />
             <ListItem.Content>
-              <ListItem.Title style={styles.title}>{data.title}</ListItem.Title>
               <View style={styles.subtitle}>
-                <Text style={styles.comment}>{data.comment}</Text>
                 <View style={styles.contentRatingDate}>
                   <AirbnbRating
                     defaultRating={data.rating}

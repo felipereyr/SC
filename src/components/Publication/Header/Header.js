@@ -25,6 +25,7 @@ export function Header(props) {
         />
       </View>
       <Text style={styles.description}>{publication.description}</Text>
+      <Text style={styles.descriptionN}>{"@" + publication.user}</Text>
       <Button
         title="Shop Product"
         onPress={() => openLink(link)}

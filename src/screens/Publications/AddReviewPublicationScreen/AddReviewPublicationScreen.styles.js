@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   content: {
     flex: 1,
     marginHorizontal: 15,
-    justifyContent: "space-between",
+    justifyContent: "center",
   },
   ratingContent: {
     height: 160,

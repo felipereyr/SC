@@ -43,7 +43,7 @@ export function RankingScreen() {
   if (!hasLogged) return <UserNotLogged />;
 
   return (
-    <ScrollView style={{ backgroundColor: "white", height: "100%" }}>
+    <ScrollView style={{ backgroundColor: "white" }}>
       <View
         style={{
           display: "flex",
